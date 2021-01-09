@@ -1,6 +1,8 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategoriaSeeder extends Seeder
 {
@@ -11,6 +13,40 @@ class CategoriaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categorias')->insert([
+            'nombre' => 'Front End',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'nombre' => 'Backend',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'nombre' => 'Full stack',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'nombre' => 'DevOPS',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'nombre' => 'DBA',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'nombre' => 'UI / UX',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'nombre' => 'Techlead',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 }
