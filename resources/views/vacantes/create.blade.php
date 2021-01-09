@@ -28,7 +28,23 @@
                 @endforeach
             </select>
 
-            @error('titulo')
+            @error('categoria')
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                    {{ $message }}
+                </p>
+            @enderror
+        </div>
+        <div class="my-3">
+            <label for="experiencia" class="block text-gray-700 text-sm mb-2"> Experiencias: </label>
+            <select name="experiencia" id="experiencia" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-white">
+                <option disabled selected>-- Selecciona --</option>
+
+                @foreach ($experiencias as $experiencia)
+                    <option value="{{$experiencia->id}}">{{ $experiencia->nombre }}</option>
+                @endforeach
+            </select>
+
+            @error('experiencia')
                 <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
                     {{ $message }}
                 </p>
