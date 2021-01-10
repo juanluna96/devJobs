@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/css/medium-editor.css" integrity="sha512-iWJx03fFJWrXXXI6ctpoVaLkB6a4yf9EHNURLEEsLxGyup43eF6LrD3FSPdt1FKnGSE8Zp7JZYEDbATHf1Yx8Q==" crossorigin="anonymous" />
+@endsection
+
 @section('navegacion')
     @include('ui.adminnav')
 @endsection
@@ -18,6 +22,7 @@
                 </p>
             @enderror
         </div>
+
         <div class="my-3">
             <label for="categoria" class="block text-gray-700 text-sm mb-2"> Categoria: </label>
             <select name="categoria" id="categoria" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-white">
@@ -34,6 +39,7 @@
                 </p>
             @enderror
         </div>
+
         <div class="my-3">
             <label for="experiencia" class="block text-gray-700 text-sm mb-2"> Experiencias: </label>
             <select name="experiencia" id="experiencia" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-white">
@@ -50,6 +56,7 @@
                 </p>
             @enderror
         </div>
+
         <div class="my-3">
             <label for="ubicacion" class="block text-gray-700 text-sm mb-2"> Ubicaciones: </label>
             <select name="ubicacion" id="ubicacion" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-white">
@@ -66,6 +73,7 @@
                 </p>
             @enderror
         </div>
+
         <div class="my-3">
             <label for="salario" class="block text-gray-700 text-sm mb-2"> Salario: </label>
             <select name="salario" id="salario" class="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 p-3 bg-white">
@@ -83,6 +91,26 @@
             @enderror
         </div>
 
+        <div class="my-3">
+            <label for="categoria" class="block text-gray-700 text-sm mb-2"> Descipcion del puesto: </label>
+            <div class="editable"></div>
+
+            @error('categoria')
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                    {{ $message }}
+                </p>
+            @enderror
+        </div>
+
         <button type="submit" class="bg-teal-500 w-full hover:bg-teal-600 text-gray-100 font-bold p-3 focus:outline focus:shadow-outline uppercase">Publicar vacante</button>
     </form>
+@endsection
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/js/medium-editor.min.js" integrity="sha512-5D/0tAVbq1D3ZAzbxOnvpLt7Jl/n8m/YGASscHTNYsBvTcJnrYNiDIJm6We0RPJCpFJWowOPNz9ZJx7Ei+yFiA==" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',() => {
+            const editor = new MediumEditor('.editable')
+        })
+    </script>
 @endsection
