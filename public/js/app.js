@@ -31953,9 +31953,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\juang\Downloads\LARAVEL_7\devjobs\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\juang\Downloads\LARAVEL_7\devjobs\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Users\juang\Downloads\LARAVEL_7\devjobs\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\xampp\htdocs\proyectos\devJobs\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\proyectos\devJobs\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\proyectos\devJobs\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
