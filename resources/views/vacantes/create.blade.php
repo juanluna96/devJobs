@@ -123,33 +123,5 @@
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/js/medium-editor.min.js" integrity="sha512-5D/0tAVbq1D3ZAzbxOnvpLt7Jl/n8m/YGASscHTNYsBvTcJnrYNiDIJm6We0RPJCpFJWowOPNz9ZJx7Ei+yFiA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded',() => {
-
-        /* ------------------------------ Medium editor ----------------------------- */
-
-            const editor = new MediumEditor('.editable',{
-                toolbar:{
-                    buttons:['bold','italic','underline','quote','anchor','justifyLeft','justifyCenter','justifyRight','justifyFull','orderedList','unorderedList','h2','h3'],
-                    static: true,
-                    sticky:true,
-                },
-                placeholder:{
-                    text:'Informacion de la vacante'
-                }
-            });
-            editor.subscribe('editableInput',function (eventObj, editable) {
-                const contenido = editor.getContent();
-                document.querySelector('#descripcion').value=contenido;
-            });
-        
-        /* -------------------------------- Dropzone -------------------------------- */
-
-        Dropzone.autoDiscover=false;  
-
-        const dropzoneDevJobs = new Dropzone('#dropzoneDevJobs',{
-            url:'/vacantes/imagen'
-        })
-        })
-    </script>
+   <script src="{{asset('js/create-vacantes.js')}}"></script>
 @endsection
