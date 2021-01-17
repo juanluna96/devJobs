@@ -30,10 +30,14 @@ document.addEventListener('DOMContentLoaded', function () {
       'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
     },
     success: function success(file, response) {
-      console.log(response);
+      // console.log(response);
+      console.log(response.correcto);
+      document.querySelector('#error').textContent = ''; // Coloca la respuesta del servidor en el input hidden
+
+      document.querySelector('#imagen').value = response.correcto;
     },
     error: function error(file, response) {
-      console.log(response);
+      // console.log(response);
       document.querySelector('#error').textContent = 'Formato no valido';
     },
     maxfilesexceeded: function maxfilesexceeded(file) {
@@ -43,8 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         this.addFile(file); //Agregar el nuevo archivo
       }
     },
-    removedfile: function removedfile(file, response) {
-      console.log(file);
+    removedfile: function removedfile(file, response) {// console.log(file);
     }
   });
 });

@@ -110,6 +110,8 @@
             <div id="dropzoneDevJobs" class="dropzone rounded bg-gray-100"></div>
 
             <p id="error" class="my-2 text-sm italic text-red-500"></p>
+
+            <input type="hidden" name="imagen" id="imagen">
         </div>
 
         <button type="submit" class="bg-teal-500 w-full hover:bg-teal-600 text-gray-100 font-bold p-3 focus:outline focus:shadow-outline uppercase">Publicar vacante</button>

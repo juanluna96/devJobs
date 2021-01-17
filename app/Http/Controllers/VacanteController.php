@@ -105,6 +105,9 @@ class VacanteController extends Controller
     public function imagen(Request $request)
     {
         $imagen = $request->file('file');
-        return $imagen->extension();
+        $nombreImagen = time() . '.' . $imagen->extension();
+        $imagen->move(public_path('storage/vacantes'), $nombreImagen);
+
+        return response()->json(['correcto' => $nombreImagen]);
     }
 }
