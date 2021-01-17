@@ -109,11 +109,7 @@
             <label for="dropzoneDevJobs" class="block text-gray-700 text-sm mb-2"> Imagen vacante: </label>
             <div id="dropzoneDevJobs" class="dropzone rounded bg-gray-100"></div>
 
-            @error('dropzoneDevJobs')
-                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
-                    {{ $message }}
-                </p>
-            @enderror
+            <p id="error" class="my-2 text-sm italic text-red-500"></p>
         </div>
 
         <button type="submit" class="bg-teal-500 w-full hover:bg-teal-600 text-gray-100 font-bold p-3 focus:outline focus:shadow-outline uppercase">Publicar vacante</button>
