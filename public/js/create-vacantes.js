@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------- Dropzone -------------------------------- */
 
-
     const dropzoneDevJobs = new Dropzone('#dropzoneDevJobs', {
         url: '/vacantes/imagen',
         dictDefaultMessage: 'Sube aquí tu archivo',
@@ -32,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
         },
         success: function(file, response) {
-            // console.log(response);
-            console.log(response.correcto);
-            document.querySelector('#error').textContent = '';
+            console.log(response)
+            document.querySelector('#error').textContent = ''
 
             // Coloca la respuesta del servidor en el input hidden
-
             document.querySelector('#imagen').value = response.correcto;
+
+            // Añadir al objeto de archivo el nombre del servidor
+            file.nombreServidor = response.correcto;
         },
         error: function(file, response) {
             // console.log(response);
@@ -46,12 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         maxfilesexceeded: function(file) {
             if (this.files[1] != null) {
-                this.removeFile(this.files[0]); //Elimina el archivo anterior
-                this.addFile(file); //Agregar el nuevo archivo
+                this.removeFile(this.files[0])
+                this.addFile(file)
             }
         },
         removedfile: function(file, response) {
-            // console.log(file);
+            file.previewElement.parentNode.removeChild(file.previewElement)
+
+            console.log('El archivo borrado fue', file);
+
+            params = {
+                imagen: document.querySelector('#imagen').value
+            }
+
+            axios.post('/vacantes/borrarimagen', params).then(respuesta => console.log(respuesta));
         }
     })
 })
