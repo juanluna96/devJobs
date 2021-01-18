@@ -32,12 +32,12 @@
                 <option disabled selected>-- Selecciona --</option>
 
                 @foreach ($categorias as $categoria)
-                    <option value="{{$categoria->id}}">{{ $categoria->nombre }}</option>
+                    <option {{ old('categoria') == $categoria->id ? 'selected' : '' }} value="{{$categoria->id}}">{{ $categoria->nombre }}</option>
                 @endforeach
             </select>
 
             @error('categoria')
-                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">
                     {{ $message }}
                 </p>
             @enderror
@@ -49,12 +49,12 @@
                 <option disabled selected>-- Selecciona --</option>
 
                 @foreach ($experiencias as $experiencia)
-                    <option value="{{$experiencia->id}}">{{ $experiencia->nombre }}</option>
+                    <option {{ old('experiencia') == $experiencia->id ? 'selected' : '' }} value="{{$experiencia->id}}">{{ $experiencia->nombre }}</option>
                 @endforeach
             </select>
 
             @error('experiencia')
-                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">
                     {{ $message }}
                 </p>
             @enderror
@@ -66,12 +66,12 @@
                 <option disabled selected>-- Selecciona --</option>
 
                 @foreach ($ubicaciones as $ubicacion)
-                    <option value="{{$ubicacion->id}}">{{ $ubicacion->nombre }}</option>
+                    <option {{ old('ubicacion') == $ubicacion->id ? 'selected' : '' }} value="{{$ubicacion->id}}">{{ $ubicacion->nombre }}</option>
                 @endforeach
             </select>
 
             @error('ubicacion')
-                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">
                     {{ $message }}
                 </p>
             @enderror
@@ -83,12 +83,12 @@
                 <option disabled selected>-- Selecciona --</option>
 
                 @foreach ($salarios as $salario)
-                    <option value="{{$salario->id}}">{{ $salario->nombre }}</option>
+                    <option {{ old('salario') == $salario->id ? 'selected' : '' }} value="{{$salario->id}}">{{ $salario->nombre }}</option>
                 @endforeach
             </select>
 
             @error('salario')
-                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">
                     {{ $message }}
                 </p>
             @enderror
@@ -101,7 +101,7 @@
             <input type="hidden" name="descripcion" id="descripcion">
 
             @error('descripcion')
-                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-4" role="alert">
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">
                     {{ $message }}
                 </p>
             @enderror

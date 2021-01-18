@@ -56,7 +56,11 @@ class VacanteController extends Controller
         // Validacion
 
         $data = $request->validate([
-            'titulo' => 'required|min:8'
+            'titulo' => 'required|min:8',
+            'categoria' => 'required',
+            'ubicacion' => 'required',
+            'experiencia' => 'required',
+            'salario' => 'required'
         ]);
     }
 
