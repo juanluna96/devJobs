@@ -113,7 +113,13 @@
 
             <p id="error" class="my-2 text-sm italic text-red-500"></p>
 
-            <input type="hidden" name="imagen" id="imagen">
+            <input type="hidden" name="imagen" id="imagen" value="{{old('imagen')}}">
+
+            @error('imagen')
+                <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">
+                    {{ $message }}
+                </p>
+            @enderror
         </div>
 
         <div class="my-5">

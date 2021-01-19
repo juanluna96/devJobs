@@ -34,6 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: {
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
         },
+        init: function() {
+            if (document.querySelector('#imagen').value.trim()) {
+                let imagenPublicada = {};
+                imagenPublicada.size = 1234;
+                imagenPublicada.name = document.querySelector('#imagen').value;
+
+                this.options.addedfile.call(this, imagenPublicada);
+                this.options.thumbnail.call(this, imagenPublicada, `/storage/vacantes/${imagenPublicada.name}`);
+
+                imagenPublicada.previewElement.classList.add('dz-sucess');
+                imagenPublicada.previewElement.classList.add('dz-complete');
+            }
+        },
         success: function(file, response) {
             console.log(response)
             document.querySelector('#error').textContent = ''
@@ -60,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('El archivo borrado fue', file);
 
             params = {
-                imagen: document.querySelector('#imagen').value
+                imagen: file.nombreServidor || document.querySelector('#imagen').value
             }
 
             axios.post('/vacantes/borrarimagen', params).then(respuesta => console.log(respuesta));
