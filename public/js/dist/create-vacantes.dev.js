@@ -12,11 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
     placeholder: {
       text: 'Informacion de la vacante'
     }
-  });
+  }); // Agrega al input hidden lo que el usuario escribe en medium editor
+
   editor.subscribe('editableInput', function (eventObj, editable) {
     var contenido = editor.getContent();
     document.querySelector('#descripcion').value = contenido;
-  });
+  }); // Llena el editor con el contenido del input hidden
+
+  editor.setContent(document.querySelector('#descripcion').value);
   /* -------------------------------- Dropzone -------------------------------- */
 
   var dropzoneDevJobs = new Dropzone('#dropzoneDevJobs', {

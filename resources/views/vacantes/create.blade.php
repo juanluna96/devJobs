@@ -98,7 +98,7 @@
             <label for="descripcion" class="block text-gray-700 text-sm mb-2"> Descipcion del puesto: </label>
             <div class="editable p-3 bg-gray-100 rounded form-input w-full text-gray-700"></div>
 
-            <input type="hidden" name="descripcion" id="descripcion">
+            <input type="hidden" name="descripcion" id="descripcion" value="{{ old('descripcion') }}">
 
             @error('descripcion')
                 <p class="bg-red-100 border-l-4 border-red-500 p-4 w-full text-red-500 text-sm italic mt-2" role="alert">

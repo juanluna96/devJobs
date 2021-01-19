@@ -60,7 +60,8 @@ class VacanteController extends Controller
             'categoria' => 'required',
             'ubicacion' => 'required',
             'experiencia' => 'required',
-            'salario' => 'required'
+            'salario' => 'required',
+            'descripcion' => 'required|min:50'
         ]);
     }
 
