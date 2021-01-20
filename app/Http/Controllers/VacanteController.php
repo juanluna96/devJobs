@@ -8,6 +8,7 @@ use App\Categoria;
 use App\Ubicacion;
 use App\Experiencia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class VacanteController extends Controller
@@ -65,6 +66,20 @@ class VacanteController extends Controller
             'imagen' => 'required',
             'skills' => 'required'
         ]);
+
+        // Almacenar en la BD
+        Auth::user()->vacantes()->create([
+            'titulo' => $data['titulo'],
+            'imagen' => $data['imagen'],
+            'descripcion' => $data['descripcion'],
+            'skills' => $data['skills'],
+            'categoria_id' => $data['categoria'],
+            'experiencia_id' => $data['experiencia'],
+            'ubicacion_id' => $data['ubicacion'],
+            'salario_id' => $data['salario'],
+        ]);
+
+        return redirect()->action('VacanteController@index');
     }
 
     /**
