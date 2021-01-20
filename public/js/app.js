@@ -1964,14 +1964,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['skills'],
-  mounted: function mounted() {
-    console.log(this.skills);
-  },
+  props: ['skills', 'oldSkills'],
   data: function data(param) {
     return {
       habilidades: new Set()
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    if (this.oldSkills) {
+      var skillsArray = this.oldSkills.split(',');
+      skillsArray.forEach(function (skill) {
+        return _this.habilidades.add(skill);
+      });
+    }
+  },
+  mounted: function mounted() {
+    document.querySelector('#skills').value = this.oldSkills;
   },
   methods: {
     activar: function activar(e) {
@@ -1991,6 +2001,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var stringHabilidades = _toConsumableArray(this.habilidades);
 
       document.querySelector('#skills').value = stringHabilidades;
+    },
+    verificarClaseActiva: function verificarClaseActiva(skill) {
+      return this.habilidades.has(skill) ? 'bg-teal-400 text-white' : '';
     }
   }
 });
@@ -19692,7 +19705,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "mt-3" }, [
     _c(
       "ul",
       { staticClass: "flex flex-wrap justify-center" },
@@ -19703,13 +19716,14 @@ var render = function() {
             key: i,
             staticClass:
               "border border-gray-500 px-10 py-2 mb-2 rounded mr-4 cursor-pointer",
+            class: _vm.verificarClaseActiva(skill),
             on: {
               click: function($event) {
                 return _vm.activar($event)
               }
             }
           },
-          [_vm._v(" " + _vm._s(skill))]
+          [_vm._v(_vm._s(skill))]
         )
       }),
       0
