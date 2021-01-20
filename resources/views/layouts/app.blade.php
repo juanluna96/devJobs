@@ -55,7 +55,9 @@
             @yield('navegacion')
         </div>
     </div>
-        @yield('content')
+        <main class="mt-10 container mx-auto">
+            @yield('content')
+        </main>
     </div>
 
     @yield('scripts')

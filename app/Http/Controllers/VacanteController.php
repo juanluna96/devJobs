@@ -27,7 +27,10 @@ class VacanteController extends Controller
      */
     public function index()
     {
-        return view('vacantes.index');
+        //$vacantes = Auth::user()->vacantes;
+
+        $vacantes = Vacante::where('user_id', Auth::user()->id)->simplePaginate(3);
+        return view('vacantes.index')->with('vacantes', $vacantes);
     }
 
     /**
