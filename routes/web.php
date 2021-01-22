@@ -21,7 +21,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas protegidas
-Route::group(['middleware' => ['auth', 'verify']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     // Rutas de vacantes
     Route::get('/vacantes', 'VacanteController@index')->name('vacantes.index');
     Route::get('/vacantes/create', 'VacanteController@create')->name('vacantes.create');
