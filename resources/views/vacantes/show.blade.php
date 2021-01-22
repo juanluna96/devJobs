@@ -44,8 +44,6 @@
                 {!! $vacante->descripcion !!}
             </div>
         </div>
-        <div class="md:w-2/5 bg-teal-500 p-5 rounded m-3">
-            <h2 class="text-2xl my-5 text-white font-bold text-center uppercase">Contacta al reclutador</h2>
-        </div>
+        @include('ui.contacto')
     </div>
 @endsection
