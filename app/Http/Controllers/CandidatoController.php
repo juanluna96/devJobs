@@ -40,9 +40,19 @@ class CandidatoController extends Controller
         $data = $request->validate([
             'nombre' => 'required',
             'email' => 'required|email',
-            // 'cv' => 'required|mimes:pdf|max:1000',
+            'cv' => 'required|mimes:pdf|max:1000',
             'vacante_id' => 'required'
         ]);
+
+        // Almacenar archivo pdf
+
+        if ($request->file('cv')) {
+            $archivo = $request->file('cv');
+            $nombreArchivo = time() . '.' . $archivo->extension();
+
+            $ubicacion = public_path('storage/cv');
+            $archivo->move($ubicacion, $nombreArchivo);
+        }
 
         // Tercera forma
         $candidato = new Candidato();
@@ -67,7 +77,7 @@ class CandidatoController extends Controller
         */
 
 
-        return 'desde store';
+        return back();
     }
 
     /**
