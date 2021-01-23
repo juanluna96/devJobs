@@ -19,6 +19,13 @@
     <link href="{{ asset('sass/dist/devjobs.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
+
+    @if (session('message'))
+        <div class="bg-teal-500 p-8 text-center text-white font-bold uppercase">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <div id="app">
         <nav class="bg-blue-900 shadow py-6">
             <div class="container mx-auto px-6 md:px-0">

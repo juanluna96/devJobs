@@ -77,7 +77,7 @@ class CandidatoController extends Controller
         */
 
 
-        return back();
+        return back()->with('message', 'Tus datos se han enviado correctamente! Te deseamos suerte');
     }
 
     /**
