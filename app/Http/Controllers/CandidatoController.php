@@ -14,9 +14,15 @@ class CandidatoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // Obtener el id actual
+        $vacante_id = $request->vacante_id;
+
+        // Obtener los candidatos y la vacante
+        $vacante = Vacante::findOrFail($vacante_id);
+
+        return view('candidatos.index', compact('vacante'));
     }
 
     /**
