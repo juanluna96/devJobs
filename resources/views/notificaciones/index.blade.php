@@ -19,6 +19,18 @@
                             {{ $data['vacante'] }}
                         </span>
                     </div>
+                    <div class="mb-4">
+                        Aplico hace:
+                        <span class="font-bold">
+                            {{ $notificacion->created_at->diffForHumans() }}
+                        </span>
+                    </div>
+                    <div class="text-center block">
+                        <a href="{{ route('candidatos.index', ['vacante_id' => $vacante->id]) }}"
+                            class="bg-teal-500 px-6 py-3 inline-block text-xs font=bold uppercase text-white">
+                            Ver candidatos
+                        </a>
+                    </div>
                 </li>
             @endforeach
         </ul>
