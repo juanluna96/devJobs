@@ -65,7 +65,7 @@ class CandidatoController extends Controller
         $vacante = Vacante::find($data['vacante_id']);
         $reclutador = $vacante->reclutador;
 
-        $reclutador->notify(new NuevoCandidato());
+        $reclutador->notify(new NuevoCandidato($vacante->titulo));
 
         /*
             // Primera forma para guardar
