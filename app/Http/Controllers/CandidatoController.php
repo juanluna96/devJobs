@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Candidato;
 use App\Vacante;
+use App\Notifications\NuevoCandidato;
 use Illuminate\Http\Request;
 
 class CandidatoController extends Controller
@@ -57,9 +58,14 @@ class CandidatoController extends Controller
         // Tercera forma
         $candidato = new Candidato();
         $candidato->fill($data);
-        $candidato->cv = '123.pdf';
+        $candidato->cv = $nombreArchivo;
 
         $candidato->save();
+
+        $vacante = Vacante::find($data['vacante_id']);
+        $reclutador = $vacante->reclutador;
+
+        $reclutador->notify(new NuevoCandidato());
 
         /*
             // Primera forma para guardar
