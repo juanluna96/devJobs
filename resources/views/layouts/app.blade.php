@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,11 +14,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('sass/dist/devjobs.css') }}" rel="stylesheet">
 </head>
+
 <body class="bg-gray-100 h-screen antialiased leading-none">
 
     @if (session('message'))
@@ -37,19 +39,23 @@
                     </div>
                     <div class="flex-1 text-right">
                         @guest
-                            <a class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3"
+                                href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
-                                <a class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3"
+                                    href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
                             <span class="text-gray-300 text-sm pr-4">{{ Auth::user()->name }}</span>
 
-                        <a href="" class="bg-teal-500 rounded-full mr-2 px-2 py-1 font-bold text-sm text-white">{{Auth::user()->unreadNotifications->count()}}</a>
+                            @if (Auth::user()->unreadNotifications->count() > 0)
+                                <a href="{{ route('notificaciones') }}"
+                                    class="bg-teal-500 rounded-full mr-2 px-2 py-1 font-bold text-sm text-white">{{ Auth::user()->unreadNotifications->count() }}</a>
+                            @endif
 
                             <a href="{{ route('logout') }}"
-                               class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3"
-                               onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
@@ -59,11 +65,11 @@
             </div>
         </nav>
 
-    <div class="bg-gray-700 mb-8">
-        <div class="container mx-auto flex space-x-1">
-            @yield('navegacion')
+        <div class="bg-gray-700 mb-8">
+            <div class="container mx-auto flex space-x-1">
+                @yield('navegacion')
+            </div>
         </div>
-    </div>
         <main class="mt-10 container mx-auto">
             @yield('content')
         </main>
@@ -71,4 +77,5 @@
 
     @yield('scripts')
 </body>
+
 </html>
