@@ -41,21 +41,23 @@
 
                                             <div class="ml-4">
                                                 <div class="text-sm leading-5 font-medium text-gray-900">
-                                                    {{ $vacante->titulo }} </div>
+                                                    {{ $vacante->titulo }}
+                                                </div>
                                                 <div class="text-sm leading-5 text-gray-500">Categoria:
-                                                    {{ $vacante->categoria->nombre }} </div>
+                                                    {{ $vacante->categoria->nombre }}
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $vacante->activa ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-                                            {{ $vacante->activa ? 'Activa' : 'Inactiva' }}
-                                        </span>
+                                        <estado-vacante estado="{{ $vacante->activa }}" vacante-id="{{ $vacante->id }}">
+                                        </estado-vacante>
                                     </td>
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                        <a href="{{ route('candidatos.index', ['vacante_id' => $vacante->id]) }}" class="text-gray-500 hover:text-gray-600"> {{ $vacante->candidatos->count() }} Candidatos</a>
+                                        <a href="{{ route('candidatos.index', ['vacante_id' => $vacante->id]) }}"
+                                            class="text-gray-500 hover:text-gray-600"> {{ $vacante->candidatos->count() }}
+                                            Candidatos</a>
                                     </td>
                                     <td
                                         class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">

@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Notificaciones
     Route::get('/notificaciones', 'NotificacionesController@index')->name('notificaciones');
+
+    // Cambiar estado de la vacante
+    Route::post('/vacantes/{vacante}', 'VacanteController@estado')->name('vacantes.estado');
 });
 
 // Enviar datos para una vacante
