@@ -23,11 +23,31 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            this.$swal.fire(
-              "Vacante eliminada!",
-              "Esta vacante ha sido eliminada.",
-              "success"
-            );
+            const params = {
+              id: this.vacanteId,
+              _method: "delete",
+            };
+
+            // Enviar peticion a axios
+
+            axios
+              .post(`/vacantes/${this.vacanteId}`, params)
+              .then((response) => {
+                this.$swal.fire(
+                  "Vacante eliminada!",
+                  response.data.mensaje,
+                  "success"
+                );
+
+                // Eliminar del DOM
+
+                this.$el.parentNode.parentNode.parentNode.removeChild(
+                  this.$el.parentNode.parentNode
+                );
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
           }
         });
     },

@@ -124,9 +124,14 @@ class VacanteController extends Controller
      * @param  \App\Vacante  $vacante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacante $vacante)
+    public function destroy(Vacante $vacante, Request $request)
     {
-        //
+        // return response()->json($vacante);
+        // return response()->json($request);
+
+        $vacante->delete();
+
+        return response()->json(['mensaje' => 'Se elimino la vacante ' . $vacante->titulo]);
     }
 
     /* ------------------------------ Campos extras ----------------------------- */
