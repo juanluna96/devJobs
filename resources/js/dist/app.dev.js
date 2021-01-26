@@ -1,5 +1,11 @@
 "use strict";
 
+var _vueSweetalert = _interopRequireDefault(require("vue-sweetalert2"));
+
+require("sweetalert2/dist/sweetalert2.min.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -20,6 +26,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.use(_vueSweetalert["default"]);
 Vue.component('example-component', require('./components/ExampleComponent.vue')["default"]);
 Vue.component('lista-skills', require('./components/ListaSkills.vue')["default"]);
 Vue.component('estado-vacante', require('./components/EstadoVacante.vue')["default"]);
