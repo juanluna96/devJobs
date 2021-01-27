@@ -20,4 +20,19 @@
             <img class="inset-0 h-full w-full object-cover object-right" src="/img/4321.jpg" alt="DevJobs" srcset="">
         </div>
     </div>
+
+    <div class="my-10 bg-gray-100 p-10 shadow">
+        <h1 class="text-3xl text-gray-700 m-0">
+            Nuevas
+            <span class="font-bold">vacantes</span>
+
+        </h1>
+        <ul class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+            @foreach ($vacantes as $vacante)
+                <li class="">
+                    {{ $vacante->titulo }}
+                </li>
+            @endforeach
+        </ul>
+    </div>
 @endsection
