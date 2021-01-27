@@ -103,6 +103,8 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
+        // Policy para evitar que otra persona edite
+        $this->authorize('view', $vacante);
         // Consultas
         $categorias = Categoria::all();
         $experiencias = Experiencia::all();
@@ -121,6 +123,9 @@ class VacanteController extends Controller
      */
     public function update(Request $request, Vacante $vacante)
     {
+        // Policy para evitar que otra persona edite
+        $this->authorize('update', $vacante);
+
         $data = $request->validate([
             'titulo' => 'required|min:8',
             'categoria' => 'required',
