@@ -16,7 +16,9 @@
 @section('content')
     <h1 class="text-2xl text-center mt-10">Editar vacante</h1>
 
-    <form action="{{ route('vacantes.store') }}" method="POST" class="max-w-xl mx-auto my-10 px-3 md:px-0">
+    <form action="{{ route('vacantes.update', ['vacante' => $vacante->id]) }}" method="POST"
+        class="max-w-xl mx-auto my-10 px-3 md:px-0">
+        @method('PUT')
         @csrf
 
         <div class="my-3">
@@ -149,7 +151,7 @@
             'ORM', 'Sequelize', 'Mongoose', 'SQL', 'MVC', 'SASS', 'WordPress', 'Express', 'Deno', 'React Native', 'Flutter',
             'MobX', 'C#', 'Ruby on Rails']
             @endphp
-            <lista-skills :old-skills="{{ json_encode(old('skills')) }}" :skills="{{ json_encode($skills) }}">
+            <lista-skills :old-skills="{{ json_encode($vacante->skills) }}" :skills="{{ json_encode($skills) }}">
             </lista-skills>
 
             @error('skills')
@@ -158,9 +160,8 @@
                 </p>
             @enderror
         </div>
-
         <button type="submit"
-            class="bg-teal-500 w-full hover:bg-teal-600 text-gray-100 font-bold p-3 focus:outline focus:shadow-outline uppercase">Publicar
+            class="bg-teal-500 w-full hover:bg-teal-600 text-gray-100 font-bold p-3 focus:outline focus:shadow-outline uppercase mb-5">Actualizar
             vacante</button>
 
     </form>
