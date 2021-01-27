@@ -103,7 +103,13 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
-        //
+        // Consultas
+        $categorias = Categoria::all();
+        $experiencias = Experiencia::all();
+        $ubicaciones = Ubicacion::all();
+        $salarios = Salario::all();
+
+        return view('vacantes.edit', compact('vacante', 'categorias', 'experiencias', 'ubicaciones', 'salarios'));
     }
 
     /**
