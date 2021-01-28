@@ -60,7 +60,7 @@
                             <a href="{{ route('logout') }}"
                                 class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3"
                                 onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
@@ -71,7 +71,7 @@
         </nav>
 
         <div class="bg-gray-700 mb-8">
-            <div class="container mx-auto flex space-x-1">
+            <div class="container mx-auto flex space-x-1 flex-col text-center md:flex-row">
                 @yield('navegacion')
             </div>
         </div>
