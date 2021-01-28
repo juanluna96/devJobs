@@ -10,6 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    {{-- Fonts --}}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     @yield('styles')
 
     <!-- Scripts -->
@@ -54,8 +58,9 @@
                             @endif
 
                             <a href="{{ route('logout') }}"
-                                class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                class="no-underline hover:underline hover:text-gray-300 text-white text-sm p-3"
+                                onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
