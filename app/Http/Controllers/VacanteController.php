@@ -206,4 +206,14 @@ class VacanteController extends Controller
 
         return response()->json(['response' => 'Correcto']);
     }
+
+    public function buscar(Request $request)
+    {
+        dd($request->all());
+    }
+
+    public function resultados()
+    {
+        return 'mostrando resultados';
+    }
 }
