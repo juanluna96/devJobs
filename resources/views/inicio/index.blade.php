@@ -15,6 +15,7 @@
                     Desarrolladores/Diseñadores
                     web</span>
             </h1>
+            @include('ui.buscar')
         </div>
         <div class="block lg:w-1/2">
             <img class="inset-0 h-full w-full object-cover object-right" src="/img/4321.jpg" alt="DevJobs" srcset="">
